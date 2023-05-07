@@ -15,7 +15,7 @@ from .ADC_function import (translate,
                           delete_all_elements_in_str,
                           delete_all_elements_in_list
                           )
-from scrapinglib.api import search
+from .scrapinglib.api import search
 
 
 def get_data_from_json(
