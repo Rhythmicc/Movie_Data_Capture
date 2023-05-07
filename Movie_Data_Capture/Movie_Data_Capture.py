@@ -727,7 +727,7 @@ def main():
             except:
                 break
     else:
-        main(args)
+        _main(args)
 
     if not conf.auto_exit():
         if sys.platform == 'win32':
