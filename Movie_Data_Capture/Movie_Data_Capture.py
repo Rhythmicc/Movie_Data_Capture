@@ -517,7 +517,7 @@ def create_data_and_move_with_custom_number(file_path: str, custom_number, oCC, 
                 print('[!]', err)
 
 
-def main(args: tuple) -> Path:
+def _main(args: tuple) -> Path:
     (single_file_path, custom_number, logdir, regexstr, zero_op, no_net_op, search, specified_source,
      specified_url) = args
     conf = config.getInstance()
@@ -538,7 +538,7 @@ def main(args: tuple) -> Path:
         ' - ' + platform.platform() + ' \n[*] - ' + platform.machine() + ' - Python-' + platform.python_version())
 
     print('[*]================= Movie Data Capture =================')
-    print('[*]' + version.center(54))
+    print('[*]' + VERSION.center(54))
     print('[*]======================================================')
     print('[*]' + platform_total)
     print('[*]======================================================')
@@ -565,7 +565,7 @@ def main(args: tuple) -> Path:
 
     if conf.update_check():
         try:
-            check_update(version)
+            check_update(VERSION)
         except Exception as e:
             print('[-]Update check failed!',e)
 
@@ -693,8 +693,7 @@ def period(delta, pattern):
     return pattern.format(**d)
 
 
-if __name__ == '__main__':
-    version = '6.6.3'
+def main():
     urllib3.disable_warnings()  # Ignore http proxy warning
     app_start = time.time()
 
@@ -702,7 +701,7 @@ if __name__ == '__main__':
     conf = config.Config("config.ini")
 
     # Parse command line args
-    args = tuple(argparse_function(version))
+    args = tuple(argparse_function(VERSION))
 
     再运行延迟 = conf.rerun_delay()
     if 再运行延迟 > 0 and conf.stop_counter() > 0:
