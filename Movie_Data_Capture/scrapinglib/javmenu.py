@@ -58,3 +58,4 @@ class Javmenu(Parser):
         title = title.replace(' | JAV目錄大全 | 每日更新',"")
         title = title.replace(' | JAV目录大全 | 每日更新',"").strip()
         return title.replace(self.number, '').strip()
+    
